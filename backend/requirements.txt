@@ -1,0 +1,15 @@
+qiskit
+qiskit-aer
+qiskit-ibm-runtime
+qiskit-machine-learning
+qiskit-algorithms
+qiskit-optimization
+qiskit[visualization]
+matplotlib
+pylatexenc
+notebook
+Flask
+flask-cors
+numpy
+networkx
+openrouteservice
