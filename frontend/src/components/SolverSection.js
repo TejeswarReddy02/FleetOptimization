@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import { Loader2, Car, Clock, TrendingUp, DollarSign } from 'lucide-react';
-import MetricCard from './MetricCard';
 import '../App.css';
+
+// Placeholder MetricCard component to make the code runnable
+const MetricCard = ({ icon, title, value }) => (
+    <div className="metric-card">
+        <div className="metric-icon">{icon}</div>
+        <div className="metric-details">
+            <h4 className="metric-title">{title}</h4>
+            <p className="metric-value">{value}</p>
+        </div>
+    </div>
+);
 
 const SolverSection = () => {
     const [citiesInput, setCitiesInput] = useState('');

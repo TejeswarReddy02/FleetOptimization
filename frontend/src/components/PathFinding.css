@@ -1,0 +1,216 @@
+/* Pathfinding.css */
+
+/* Global font settings */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.pathfinding-container {
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #1A0033, #3A0066, #00004D);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  gap: 20px;
+  position: relative;
+}
+
+.one-city-background {
+  display: none;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  max-width: 1200px;
+  flex-grow: 1;
+  overflow: hidden;
+  z-index: 1;
+  padding: 30px;
+  box-sizing: border-box;
+  align-items: center;
+  background-color: rgba(26, 0, 51, 0.85);
+  border-radius: 1.5rem;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.pathfinding-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #00FFFF, #800080, #FFC0CB);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.two-column-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  width: 100%;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.left-column { /* Analysis Boxes on the left */
+  flex: 0 0 350px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.right-column { /* Map Column on the right */
+  flex: 1;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+
+.analysis-box {
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(199, 125, 255, 0.3);
+  box-shadow: 0 0 10px rgba(199, 125, 255, 0.3);
+  text-align: center;
+}
+
+.analysis-box h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  background: linear-gradient(to right, #00FFFF, #C77DFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.analysis-box p {
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+.analysis-button-main {
+  background: linear-gradient(to right, #C77DFF, #800080);
+  border: none;
+  border-radius: 9999px;
+  padding: 1.2rem 2.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(157, 78, 221, 0.7);
+  width: auto;
+  min-width: 150px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.analysis-button-main:hover {
+  background: linear-gradient(to right, #D8A4FF, #990099);
+  box-shadow: 0 0 25px rgba(157, 78, 221, 1);
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 400px; /* Ensure a minimum height for the map */
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 2px solid #00FFFF;
+  border-radius: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: normal;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+.back-button {
+  position: relative;
+  margin-top: 20px;
+  z-index: 2;
+  background: none;
+  border: 2px solid #C77DFF;
+  border-radius: 9999px;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #C77DFF;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  width: auto;
+  min-width: 100px;
+  text-align: center;
+  align-self: flex-start;
+}
+
+.back-button:hover {
+  background: rgba(199, 125, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .pathfinding-title {
+    font-size: 2rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .two-column-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .left-column, .right-column {
+    width: 100%;
+    max-width: 400px;
+    min-width: unset;
+  }
+
+  .map-placeholder {
+    height: 180px;
+  }
+
+  .analysis-button-main {
+    align-self: center;
+  }
+}
